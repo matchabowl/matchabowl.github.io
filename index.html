@@ -1,8 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matchabowl's Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+<main>
+    <h1 class="system-header">What I am currently working on</h1>
+    
+    <div class="system-status">
+        <p><span class="prompt">></span> Establishing secure connection...</p>
+        <p><span class="prompt">></span> Retrieving current objectives...</p>
+    </div>
+    
+    <table class="process-table">
+        <thead>
+            <tr>
+                <th>STATUS</th>
+                <th>PROJECT</th>
+                <th>Est. Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="status-active">[ ACTIVE ]</td>
+                <td>Finishing my B.Sc. in Mathematics from TUM</td>
+                <td>October 2026</td>
+            </tr>
+            <tr>
+                <td class="status-active">[ ACTIVE ]</td>
+                <td>Contributing to SageMath: Non-Maximal orders in Imaginery-Quadratic Number fields</td>
+                <td>July 2026</td>
+            </tr>
+            <tr>
+                <td class="status-active">[ ACTIVE ]</td>
+                <td>Preparing for CTFs: Cryptography</td>
+                <td><span class="infinity-symbol">∞</span></td>
+            </tr>
+            <tr>
+                <td class="status-starting">[ STARTING ]</td>
+                <td>Preparing for the IMC math competition</td>
+                <td>August 2026</td>
+            </tr>
+        </tbody>
+    </table>
 
-<h1>This website will (hopefully) soon have some content :)</h1>
+    <h1 class="system-header section-divider">Other</h1>
 
+    <div class="system-nav">
+        <p><span class="prompt">></span> ls -l ./root/</p>
+        <ul class="nav-list">
+            <li><a href="whoami.html" class="nav-link">rwxr-xr-x  whoami.txt</a>  <span class="nav-desc">// Who I am, my interests,...</span></li>
+            <li><a href="projects.html" class="nav-link">rwxr-xr-x  projects.sh</a> <span class="nav-desc">// Code I have worked on</span></li>
+            <li><a href="awards.html" class="nav-link">r--r--r--  awards.txt</a> <span class="nav-desc">// Awards I have won</span></li>
+            <li><a href="friends.html" class="nav-link">rwxr-xr-x  ping.sh</a>      <span class="nav-desc">// What my friends work on</span></li>
+            <li><a href="documents.html" class="nav-link">rwxr-xr-x  documents/</a>      <span class="nav-desc">// Seminar talks, Theses, Tutorial Slides</span></li>
+            <li><a href="posts.html" class="nav-link">rwxr-xr-x  posts/</a>      <span class="nav-desc">// Sometimes I like to talk about things</span></li>
+        </ul>
+    </div>
+</main>
 </body>
 </html>
