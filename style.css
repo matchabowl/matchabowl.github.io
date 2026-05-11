@@ -25,12 +25,13 @@ main {
     border-bottom: 1px dashed #00FFFF;
     padding-bottom: 10px;
     font-weight: normal;
-    color: #888888; /* Dim grey */
-    border-bottom-color: #555555; /* Dim the dotted line beneath them */
+    color: #888888;
+    border-bottom-color: #555555; 
 }
 
 .process-table td {
-    padding: 10px 0;
+    vertical-align: top;
+    padding-top: 10px;/
 }
 
 .process-table tbody tr:hover {
