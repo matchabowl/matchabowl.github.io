@@ -1,1 +1,113 @@
-Under Construction
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Matchabowl's Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="system-nav">
+            <p><span class="prompt">></span> cd /root/projects/</p>
+            <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd ..</a> <span class="nav-desc">//
+                            Back to Main Page</span></p>
+        </div>
+
+        <h1 class="system-header">Projects</h1>
+
+        <ul class="project-menu">
+            <li>
+                <a href="project_PS2.html" class="project-block">
+                    <div class="project-header">
+                        <span class="project-title">PS2 Project</span>
+                        <span class="project-status status-ongoing">[ ONGOING ]</span>
+                    </div>
+                    <span class="project-desc">Turning an old PS2 into a tool for <em>something</em>, making heavy use
+                        of architecture-specific features</span>
+                    <ul class="project-tech">
+                        <li>Rust</li>
+                        <li>C++</li>
+                        <li>Assembly</li>
+                        <li>MIPS Architecture</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="project_sagemath.html" class="project-block">
+                    <div class="project-header">
+                        <span class="project-title">Projections of related Orders in imaginary-quadratic number
+                            fields</span>
+                        <span class="project-status status-ongoing">[ ONGOING ]</span>
+                    </div>
+                    <span class="project-desc">Extending SageMath's functionality regarding projections between
+                        non-maximal Orders in imaginary-quadratic number fields.</span>
+                    <ul class="project-tech">
+                        <li>SageMath</li>
+                        <li>Python</li>
+                        <li>Algebraic Number Theory</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="project_ctf.html" class="project-block">
+                    <div class="project-header">
+                        <span class="project-title">Cryptography CTF tool(s)</span>
+                        <span class="project-status status-ongoing">[ ONGOING ]</span>
+                    </div>
+                    <span class="project-desc">Tool(s) for automatically detecting and exploiting attacks on
+                        elliptic curves</span>
+                    <ul class="project-tech">
+                        <li>Rust</li>
+                        <li>SageMath</li>
+                        <li>Cryptography</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="project_Algebra_Verification.html" class="project-block">
+                    <div class="project-header">
+                        <span class="project-title">Formal Verification of Basic Algebra</span>
+                        <span class="project-status status-finished">[ FINISHED ]</span>
+                    </div>
+                    <span class="project-desc">Formally Verifying basic results from Group and Ring Theory</span>
+                    <ul class="project-tech">
+                        <li>LEAN</li>
+                        <li>LateX</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+
+        <h1 class="system-header section-divider">Some Ideas</h1>
+
+        <div class="system-status">
+            <p>Occasionally, I come up with ideas I find cool. Here is a list of the ones I have not (yet ?) managed to
+                work on. They tend to be unrealistic, so feel free to take them as inspiration for your own adventures
+            </p>
+        </div>
+
+        <ul class="backlog-list">
+            <li>Try to reverse engineer a smartwatch and make it do things it was not intended to do</li>
+            <li>Collect lots of data on some thing people bet money on, and see if through clever data analysis you can
+                reliably make a profit (in theory)</li>
+            <li>Implement solutions to semi-common bruteforce-like situations in Cryptography CTFs in CUDA</li>
+            <li>Write your own Bootloader, Hypervisor, ...</li>
+            <li>Try to reverse engineer a common kernel level anticheat</li>
+            <li>Something related to Secureboot</li>
+            <li>Implement some cryptography on an FPGA / ASIC and see just how fast you can get it to run</li>
+            <li>Take some old smartcard, phone or a comparable device, take it apart, and make it do things it was not
+                supposed to do</li>
+            <li>Construct a device that can detect and visualize signals sent out by ships to communicate</li>
+            <li>In some way visualize the inner workings of CPython</li>
+            <li>In some way create a "useful" overview of how V8 works during execution</li>
+        </ul>
+    </main>
+    <script src="animation.js"></script>
+</body>
+</html>

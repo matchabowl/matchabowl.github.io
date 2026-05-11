@@ -25,6 +25,8 @@ main {
     border-bottom: 1px dashed #00FFFF;
     padding-bottom: 10px;
     font-weight: normal;
+    color: #888888; /* Dim grey */
+    border-bottom-color: #555555; /* Dim the dotted line beneath them */
 }
 
 .process-table td {
@@ -69,11 +71,15 @@ main {
     padding-right: 20px;
 }
 
+.process-table td:nth-child(3) {
+    color: #00FFFF;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
 .process-table td {
     vertical-align: top;
     padding-bottom: 20px;
 }
-
 
 .infinity-symbol {
     font-size: 1.8em;
@@ -125,4 +131,130 @@ main {
 
 .section-divider {
     margin-top: 150px;
+}
+
+.project-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.project-menu li {
+    margin-bottom: 15px;
+    border: 1px solid #333333;
+    transition: all 0.15s ease-in-out; 
+}
+
+.project-menu li:hover {
+    border-color: #00FFFF;
+    background-color: rgba(0, 255, 255, 0.05);
+    cursor: crosshair;
+}
+
+.project-block {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+.project-title {
+    display: block;
+    color: #00FFFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.project-desc {
+    display: block;
+    color: #CCCCCC;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; 
+    margin-bottom: 8px;
+}
+
+.project-title {
+    color: #00FFFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.project-status {
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+.backlog-list {
+    color: #888888;
+}
+.backlog-list li::before {
+    color: #555555; 
+}
+
+.status-ongoing {
+    color: #00FF00;
+}
+
+.status-finished {
+    color: #888888;
+}
+
+.project-tech {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-tech li {
+    font-size: 0.75rem;
+    color: #888888;
+    border: 1px solid #444444;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.15s ease-in-out;
+}
+
+.project-block:hover .project-tech li {
+    border-color: #FF00FF;
+    color: #FF00FF;
+    background-color: rgba(255, 0, 255, 0.05);
+}
+
+.error-text {
+    color: #FF00FF;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.build-log {
+    margin-top: 40px;
+    color: #CCCCCC;
+    line-height: 1.6;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: #00FFFF;
+    vertical-align: middle;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
