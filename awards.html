@@ -12,25 +12,56 @@
 </head>
 <body>
 <main>
-    <h1 class="system-header">ERR_UNALLOCATED_SPACE</h1>
-
-    <div class="system-status">
-        <p><span class="prompt">></span>cat /root/awards</p>
-        <p class="error-text">[ FATAL ] Segmentation fault. Content payload is null.</p>
+    <div class="system-nav">
+        <p><span class="prompt">></span> cd /root/awards/</p>
+        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd ..</a> <span class="nav-desc">// Return to previous</span></p>
     </div>
 
-    <div class="build-log">
-        <p><span class="prompt">></span> tail -f /var/log/sysbuild.log</p>
-        <p>Initializing architecture build...</p>
-        <p>Fetching dependencies......... [ OK ]</p>
-        <p>Allocating memory blocks...... [ OK ]</p>
-        <p>Compiling HTML/CSS nodes...... <span class="status-starting">[ IN PROGRESS ]</span></p>
-        <br>
-        <p class="typing-line">Awaiting manual content injection by ROOT<span class="cursor"></span></p>
+    <h1 class="system-header">Awards / Competitions</h1>
+
+    <div class="system-status" style="margin-bottom: 40px;">
+        <p><span class="status-active" style="color: #00FF00;">[ OK ]</span> Validating signatures...</p>
+        <p><span class="status-active" style="color: #00FF00;">[ OK ]</span> 2 verified tokens found.</p>
     </div>
 
-    <div class="system-nav" style="margin-top: 60px;">
-        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd /root</a> <span class="nav-desc">// Back to previous</span></p>
+    <div class="crypto-cert">
+        <div class="cert-header">
+            <span class="cert-hash">ID: x509_TUM_DEUTSCHLANDSTIPENDIUM</span>
+            <span class="cert-status">[ SIGNATURE VALID ]</span>
+        </div>
+        <h2 class="cert-title">Deutschlandstipendium</h2>
+        
+        <div class="cert-meta">
+            <p><span class="meta-label"> AUTHORITY:</span> Technical University of Munich</p>
+            <p><span class="meta-label"> CLASS:</span> Merit-Based Scholarship</p>
+            <p><span class="meta-label"> DATE:</span> October 2022 - September 2024</p>
+        </div>
+        
+        <p class="cert-payload">
+            Awarded for excellent Academic Performance, Social Commitment and High Potential.
+        </p>
+    </div>
+
+    <div class="crypto-cert">
+        <div class="cert-header">
+            <span class="cert-hash">ID: x509_RLP_MATH_COMPETITION</span>
+            <span class="cert-status">[ SIGNATURE VALID ]</span>
+        </div>
+        <h2 class="cert-title">Landeswettbewerb Mathematik RLP — 2nd Prize</h2>
+        
+        <div class="cert-meta">
+            <p><span class="meta-label">AUTHORITY:</span> State of Rhineland-Palatinate</p>
+            <p><span class="meta-label">CLASS:</span> Mathematics Competition</p>
+            <p><span class="meta-label"> DATE:</span> 2016</p>
+        </div>
+        
+        <p class="cert-payload">
+            Awarded the 2nd prize in a statewide mathematics competition for students grade 8/9.
+        </p>
+    </div>
+
+    <div class="system-status" style="margin-top: 40px;">
+        <p><span class="prompt">></span> EOF reached.<span class="cursor"></span></p>
     </div>
 </main>
 <script src="animation.js"></script>

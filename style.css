@@ -259,3 +259,106 @@ main {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+.data-dump-module {
+    margin: 40px 0 20px 0;
+    border: 1px solid #333333;
+    border-left: 4px solid #00FFFF;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 255, 0.02) 2px,
+        rgba(0, 255, 255, 0.02) 4px
+    );
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+}
+
+.data-dump-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #111111;
+    border-bottom: 1px solid #333333;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+}
+
+.dump-title { color: #00FFFF; }
+.dump-meta { color: #555555; }
+
+.data-dump-content {
+    padding: 25px 20px;
+    color: #CCCCCC;
+    line-height: 1.7;
+}
+
+.data-dump-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.data-dump-content p:last-child {
+    margin-bottom: 0;
+}
+
+.crypto-cert {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px dashed #555555;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.crypto-cert:hover {
+    border-color: #FFD700;
+    background-color: rgba(255, 215, 0, 0.03);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.cert-hash {
+    color: #888888;
+    font-family: monospace;
+}
+
+.cert-status {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.cert-title {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cert-meta {
+    font-size: 0.85rem;
+    color: #AAAAAA;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.meta-label {
+    color: #00FFFF;
+}
+
+.cert-payload {
+    color: #CCCCCC;
+    line-height: 1.6;
+    text-align: justify;
+}

@@ -12,25 +12,44 @@
 </head>
 <body>
 <main>
-    <h1 class="system-header">ERR_UNALLOCATED_SPACE</h1>
+    <div class="system-nav">
+        <p><span class="prompt">></span> cd /root/projects/formal_verification/</p>
+        <p><span class="prompt"><-</span> <a href="projects.html" class="nav-link">cd ..</a> <span class="nav-desc">// Back to previous </span></p>
+    </div>
 
+    <h1 class="system-header">FORMAL VERIFICATION OF BASIC GROUP AND RING THEORY</h1>
+    
     <div class="system-status">
-        <p><span class="prompt">></span>cd /root/projects/project_Algebra_Verification.html</p>
-        <p class="error-text">[ FATAL ] Segmentation fault. Content payload is null.</p>
+        <p><span class="prompt">></span> loading summary.txt...</p>
+        <p><span class="status-active" style="color: #00FF00;">[ OK ]</span> loaded summary.txt</p>
+        
+        <p><span class="prompt">></span> cat ./metadata/timestamp.log</p>
+        <p>[ TIMESTAMP ] Project conducted in <span style="color: #00FFFF;">Summer 2024</span></p>
     </div>
 
-    <div class="build-log">
-        <p><span class="prompt">></span> tail -f /var/log/sysbuild.log</p>
-        <p>Initializing architecture build...</p>
-        <p>Fetching dependencies......... [ OK ]</p>
-        <p>Allocating memory blocks...... [ OK ]</p>
-        <p>Compiling HTML/CSS nodes...... <span class="status-starting">[ IN PROGRESS ]</span></p>
-        <br>
-        <p class="typing-line">Awaiting manual content injection by ROOT<span class="cursor"></span></p>
+    <div class="data-dump-module">
+        <div class="data-dump-header">
+            <span class="dump-title">//SUMMARY</span>
+            <span class="dump-meta">ENCODING: UTF-8</span>
+        </div>
+        <div class="data-dump-content">
+            <p>In this project I formalized standard results one might encounter in a first course on Abstract Algebra. You may ask why I did this. Well, I just happened to be interested in formal theorem proving and Algebra, so this seemed like a nice little project.</p>
+            
+            <p>More concretely, I started off with the axiomatic definitions of Groups and Rings and tried to somehow prove a couple of basic theorems. Notable ones were Lagrange's Theorem and the Homomorphism Theorem from Group Theory, as well as the universal property of the field of fraction and PID's being UFD's in Ring Theory.</p>
+        </div>
     </div>
 
-    <div class="system-nav" style="margin-top: 60px;">
-        <p><span class="prompt"><-</span> <a href="projects.html" class="nav-link">cd /root/projects</a> <span class="nav-desc">// Back to previous</span></p>
+    <ul class="project-tech" style="margin-bottom: 40px;">
+        <li>Lean</li>
+        <li>Algebra</li>
+        <li>LateX</li>
+    </ul>
+
+    <div class="system-status" style="margin-top: 60px; border-top: 1px dotted #333333; padding-top: 30px;">
+        <p><span class="prompt">></span> loading description.txt...</p>
+        <p style="color: #FF00FF; font-weight: bold;">[ ERR_404 ] FILE NOT FOUND</p>
+        <p style="color: #FF00FF; font-weight: bold;">Unfortunately, back in 2024 I did not think about storing my projects somewhere for the future. As I barely remembered which theorems I even proved, I can't say much more.</p>
+        <p><span class="prompt">></span> EOF reached.<span class="cursor"></span></p>
     </div>
 </main>
 <script src="animation.js"></script>

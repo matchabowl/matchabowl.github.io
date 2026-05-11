@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const originalText = textNode.nodeValue;
         let iteration = 0;
         
-        let speed = 20;
+        let speed = 7;
 
         const decryptInterval = setInterval(() => {
             textNode.nodeValue = originalText.split("").map((char, index) => {
