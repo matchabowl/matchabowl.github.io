@@ -12,27 +12,157 @@
 </head>
 <body>
 <main>
-    <h1 class="system-header">ERR_UNALLOCATED_SPACE</h1>
-
-    <div class="system-status">
-        <p><span class="prompt">></span>cd /root/documents</p>
-        <p class="error-text">[ FATAL ] Segmentation fault. Content payload is null.</p>
+    <div class="system-nav">
+        <p><span class="prompt">></span> cd /root/documents/</p>
+        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd ..</a> <span class="nav-desc">// Back to Main Page</span></p>
     </div>
 
-    <div class="build-log">
-        <p><span class="prompt">></span> tail -f /var/log/sysbuild.log</p>
-        <p>Initializing architecture build...</p>
-        <p>Fetching dependencies......... [ OK ]</p>
-        <p>Allocating memory blocks...... [ OK ]</p>
-        <p>Compiling HTML/CSS nodes...... <span class="status-starting">[ IN PROGRESS ]</span></p>
-        <br>
-        <p class="typing-line">Awaiting manual content injection by ROOT<span class="cursor"></span></p>
+    <h1 class="system-header">ACADEMIC DOCUMENTS</h1>
+
+    <div class="system-status" style="margin-bottom: 40px;">
+        <p><span class="prompt">></span> mount -t vfs /dev/storage ./archive</p>
+        <p><span class="status-active" style="color: #00FF00;">[ MOUNTED ]</span> Read-only access granted. 3 volumes detected.</p>
     </div>
 
-    <div class="system-nav" style="margin-top: 60px;">
-        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd /root</a> <span class="nav-desc">// Back to previous</span></p>
+    <h2 class="sub-header">THESES</h2>
+    <table class="file-table">
+        <thead>
+            <tr>
+                <th>PERMISSIONS</th>
+                <th>SIZE</th>
+                <th>DATE_MOD</th>
+                <th>FILE_NAME</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>----------</td>
+                <td>0.0K</td>
+                <td>--/--/----</td>
+                <td><span class="file-name-offline">B.Sc. Mathematics Thesis.pdf</span></td>
+                <td><span class="action-null">[ OFFLINE ]</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="sub-header">SEMINAR TALKS</h2>
+    <table class="file-table">
+        <thead>
+            <tr>
+                <th>PERMISSIONS</th>
+                <th>SIZE</th>
+                <th>DATE_MOD</th>
+                <th>FILE_NAME</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-r--r--r--</td>
+                <td>388K</td>
+                <td>June 2025</td>
+                <td><a href="archive/Further_Applications_of_Bézout's_Theorem.pdf" download class="file-name-link">Further Applications of Bézout's Theorem.pdf</a></td>
+                <td><a href="archive/Further_Applications_of_Bézout's_Theorem.pdf" download class="action-pull">[ PULL ]</a></td>
+            </tr>
+            <tr>
+                <td>-r--r--r--</td>
+                <td>99K</td>
+                <td>April 2024</td>
+                <td><a href="archive/Integer_Multiplication.pdf" download class="file-name-link">Multiplication on Integers.pdf</a></td>
+                <td><a href="archive/Integer_Multiplication.pdf" download class="action-pull">[ PULL ]</a></td>
+            </tr>
+            <tr>
+                <td>----------</td>
+                <td>0.0K</td>
+                <td>June 2026</td>
+                <td class="file-name" style="color: #555555;">Computing Endomorphism Rings Supersingular.pdf</td>
+                <td><span class="action-null">[ OFFLINE ]</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="sub-header">TUTORIALS</h2>
+    
+    <div class="directory-accordion">
+        
+        <div class="dir-folder">
+            <div class="dir-header" onclick="toggleDir('dir-THEO26')">
+                <span class="toggle-icon">[ + ]</span> 
+                <span class="dir-title">Einführung in die Theoretische Informatik SS26</span>
+            </div>
+            
+            <div class="dir-content" id="dir-THEO26">
+                <table class="file-table">
+                    <thead>
+                        <tr>
+                            <th>WEEK</th>
+                            <th>SIZE</th>
+                            <th>FILE_NAME</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Week 04</td>
+                            <td>0.0M</td>
+                            <td><span class="file-name-offline">Tutorial 04.pdf</span></td>
+                            <td><span class="action-null">[ OFFLINE ]</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dir-folder">
+            <div class="dir-header" onclick="toggleDir('dir-DWT26')">
+                <span class="toggle-icon">[ + ]</span> 
+                <span class="dir-title">Diskrete Wahrscheinlichkeitstheorie SS26</span>
+            </div>
+            
+            <div class="dir-content" id="dir-DWT26">
+                <table class="file-table">
+                    <thead>
+                        <tr>
+                            <th>WEEK</th>
+                            <th>SIZE</th>
+                            <th>FILE_NAME</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Week 04</td>
+                            <td>0.0K</td>
+                            <td><span class="file-name-offline">Tutorial 04.pdf</span></td>
+                            <td><span class="action-null">[ OFFLINE ]</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="system-status" style="margin-top: 40px;">
+        <p><span class="prompt">></span> EOF reached.<span class="cursor"></span></p>
     </div>
 </main>
+<script>
+    function toggleDir(targetId) {
+        const content = document.getElementById(targetId);
+        const header = content.previousElementSibling;
+        const icon = header.querySelector('.toggle-icon');
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.innerText = "[ + ]";
+            header.style.borderBottom = "none";
+        } else {
+            content.style.display = "block";
+            icon.innerText = "[ - ]";
+        }
+    }
+</script>
 <script src="animation.js"></script>
 </body>
 </html>

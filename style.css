@@ -362,3 +362,149 @@ main {
     line-height: 1.6;
     text-align: justify;
 }
+
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+.file-table th {
+    text-align: left;
+    color: #555555;
+    border-bottom: 1px dotted #555555;
+    padding: 5px 15px 15px 15px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+.file-table td {
+    padding: 12px 15px;
+    color: #888888;
+    border-bottom: 1px solid #111111;
+    transition: all 0.1s ease-in-out;
+}
+
+.file-table .file-name {
+    color: #CCCCCC;
+}
+
+.file-table tbody tr:hover td {
+    background-color: rgba(0, 255, 255, 0.05);
+}
+
+.file-table tbody tr:hover .file-name {
+    color: #00FFFF;
+}
+
+.action-pull {
+    color: #FF00FF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.action-pull:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8);
+}
+
+.action-null {
+    color: #FF0033;
+    font-weight: bold;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.file-table tbody tr:hover .action-null {
+    text-shadow: 0 0 5px rgba(255, 0, 51, 0.6);
+}
+
+.action-pull {
+    color: #FF00FF; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.action-null {
+    color: #FF0033; 
+    font-weight: bold;
+    cursor: not-allowed;
+    user-select: none; 
+    white-space: nowrap;
+}
+
+.file-table th:last-child,
+.file-table td:last-child {
+    text-align: right;
+}
+
+.file-name-link {
+    color: #CCCCCC;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.file-table tbody tr:hover .file-name-link {
+    color: #00FFFF;
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.file-name-offline {
+    color: #555555;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.directory-accordion {
+    margin-bottom: 50px;
+}
+
+.dir-folder {
+    margin-bottom: 15px;
+    border: 1px solid #333333;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dir-header {
+    background-color: #111111;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.1s ease-in-out;
+}
+
+.dir-header:hover {
+    background-color: rgba(0, 255, 255, 0.05);
+    color: #00FFFF;
+}
+
+.toggle-icon {
+    color: #FF00FF;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.dir-title {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.dir-content {
+    display: none;
+    padding: 0 15px 15px 15px;
+    border-top: 1px dotted #333333;
+}
+
+.dir-content .file-table {
+    margin-bottom: 0;
+    margin-top: 15px;
+}
