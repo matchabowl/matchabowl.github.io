@@ -13,25 +13,31 @@
 </head>
 <body>
 <main>
-    <h1 class="system-header">ERR_UNALLOCATED_SPACE</h1>
-
-    <div class="system-status">
-        <p><span class="prompt">></span>cat /root/whoami</p>
-        <p class="error-text">[ FATAL ] Segmentation fault. Content payload is null.</p>
+    <div class="system-nav">
+        <p><span class="prompt">></span> whoami</p>
+        <p><span class="status-active" style="color: #00FF00;">root</span></p>
+        <p><span class="prompt">></span> neofetch --user profile.dat</p>
+        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd ..</a> <span class="nav-desc">// Return to previous</span></p>
     </div>
 
-    <div class="build-log">
-        <p><span class="prompt">></span> tail -f /var/log/sysbuild.log</p>
-        <p>Initializing architecture build...</p>
-        <p>Fetching dependencies......... [ OK ]</p>
-        <p>Allocating memory blocks...... [ OK ]</p>
-        <p>Compiling HTML/CSS nodes...... <span class="status-starting">[ IN PROGRESS ]</span></p>
-        <br>
-        <p class="typing-line">Awaiting manual content injection by ROOT<span class="cursor"></span></p>
+    <h1 class="system-header">About Me</h1>
+
+    <div class="data-dump-module" style="margin-top: 40px;">
+        <div class="data-dump-header">
+            <span class="dump-title">Summary</span>
+            <span class="dump-meta">ENCODING: UTF-8</span>
+        </div>
+        <div class="data-dump-content">
+            <p>I like working on all sorts of technologically challenging things, especially when they are obscure, niche, or it is not even clear if it is possible. Currently, my main focus is everything related to Security.</p>
+            <p>Initially, I studied Computer Science for 2 semesters at TUM, where I was most interested in Assembly & Theoretical Computer Science, but then switched to Mathematics, where I am now focusing on Algebraic topics.</p>
+            <p>If possible, I like working on aspects that require or at least where there is a possibility to display deep mastery of an area. Moreover, my preferred approach to solving problems is diving head-first into unknown territory, obsessively working morning to evening on that one thing only until it is solved.</p>
+            <p>I think the one thing I am exceptionally good at is metaphorically speaking, running head-first against a wall, repeatedly, until either I or the wall gives in. Usually, the wall falls first</p>
+            <p>Besides these matters, I like to learn about (South)east-Asian history, occasionally reading about Existentialsm & Daoism or take the train to some random location and explore the area like a video game</p>
+        </div>
     </div>
 
-    <div class="system-nav" style="margin-top: 60px;">
-        <p><span class="prompt"><-</span> <a href="index.html" class="nav-link">cd /root</a> <span class="nav-desc">// Back to previous</span></p>
+    <div class="system-status" style="margin-top: 40px; border-top: 1px dotted #333333; padding-top: 30px;">
+        <p><span class="prompt">></span> EOF reached.<span class="cursor"></span></p>
     </div>
 </main>
 <script src="animation.js"></script>

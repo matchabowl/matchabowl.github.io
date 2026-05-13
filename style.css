@@ -508,3 +508,62 @@ main {
     margin-bottom: 0;
     margin-top: 15px;
 }
+/* --- NEOFETCH MODULE --- */
+.neofetch-module {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+
+/* Left side (Image/ASCII) */
+.neo-visual {
+    flex: 0 0 200px;
+    text-align: center;
+}
+
+.ascii-art {
+    color: #00FFFF; /* Cyan ASCII */
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+.scan-status {
+    font-size: 0.8rem;
+    color: #555555;
+    letter-spacing: 0.1em;
+}
+
+/* Right side (Stats) */
+.neo-stats {
+    flex: 1 1 300px;
+    color: #CCCCCC;
+    line-height: 1.8;
+}
+
+.neo-stats p {
+    margin: 0;
+}
+
+.neo-key {
+    color: #FF00FF;
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+.neo-colors {
+    margin-top: 15px;
+    display: flex;
+    gap: 5px;
+}
+
+.neo-colors span {
+    display: block;
+    width: 25px;
+    height: 10px;
+}
