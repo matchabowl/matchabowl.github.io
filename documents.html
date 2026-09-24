@@ -7,6 +7,7 @@
     <title>~/documents</title>
     <style>
         :root {
+            --phosphor-green-dim: #1d7c0b;
             --bg-color: #020602;
             --phosphor-green: #39ff14;
             --phosphor-cyan: #00f3ff;
@@ -34,12 +35,27 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%;
-            z-index: 100;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
+            z-index: 9999;
+            background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to bottom,
+                    var(--scanline-color),
+                    var(--scanline-color) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            background-size: 100% 3px;
         }
 
         .terminal-container {
