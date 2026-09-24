@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How did you get here ?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        :root {
+            --bg-color: #020602;
+            --phosphor-green: #39ff14;
+            --phosphor-green-dim: #1d7c0b;
+            --phosphor-cyan: #00f3ff;
+            --phosphor-grey: #6a8c6a;
+            --phosphor-magenta: #ff00ff;
+            --phosphor-yellow: #ffcc00;
+
+            --glow-spread-green: rgba(57, 255, 20, 0.4);
+            --glow-spread-cyan: rgba(0, 243, 255, 0.4);
+            --glow-spread-yellow: rgba(255, 204, 0, 0.4);
+            --hover-bg: rgba(57, 255, 20, 0.08);
+
+            --font-terminal: 'Space Mono', monospace;
+            --scanline-color: rgba(0, 0, 0, 0.15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--phosphor-green);
+            font-family: var(--font-terminal);
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to bottom,
+                    var(--scanline-color),
+                    var(--scanline-color) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            background-size: 100% 3px;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 50px 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .terminal-prompts {
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+
+        .prompt-arrow {
+            color: var(--phosphor-magenta);
+            margin-right: 8px;
+        }
+
+        .command-line {
+            color: var(--phosphor-green);
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 2px 8px;
+            margin-left: -8px;
+            text-decoration: none;
+            color: var(--phosphor-cyan);
+            font-weight: bold;
+            transition: background-color 0s, color 0s;
+        }
+
+        .back-link:hover {
+            background-color: var(--phosphor-cyan);
+            color: var(--bg-color);
+            text-shadow: none;
+        }
+
+        .comment {
+            color: var(--phosphor-grey);
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--phosphor-green-dim);
+            text-shadow: 0 0 8px var(--glow-spread-green);
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 1px solid rgba(106, 140, 106, 0.4);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: border-color 0s, box-shadow 0s;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .project-title {
+            color: var(--phosphor-cyan);
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-shadow: 0 0 5px var(--glow-spread-cyan);
+        }
+
+        .project-status {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .status-ongoing {
+            color: var(--phosphor-green);
+            text-shadow: 0 0 5px var(--glow-spread-green);
+        }
+
+        .status-starting {
+            color: var(--phosphor-cyan);
+            text-shadow: 0 0 5px var(--glow-spread-cyan);
+        }
+
+        .status-paused {
+            color: var(--phosphor-yellow);
+            text-shadow: 0 0 5px var(--glow-spread-yellow);
+        }
+
+        .status-finished {
+            color: var(--phosphor-grey);
+            text-shadow: none;
+        }
+
+        .project-desc {
+            color: #e0e0e0;
+            max-width: 85ch;
+        }
+
+        .project-desc em {
+            font-style: italic;
+            color: var(--phosphor-grey);
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .tag {
+            border: 1px solid rgba(106, 140, 106, 0.4);
+            color: var(--phosphor-grey);
+            padding: 2px 6px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: border-color 0s, color 0s, text-shadow 0s;
+        }
+
+        .project-card:hover {
+            border-color: var(--phosphor-cyan);
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.05);
+        }
+
+        .project-card:hover .tag {
+            border-color: var(--phosphor-magenta);
+            color: var(--phosphor-magenta);
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.4);
+        }
+
+        .eof-line {
+            margin-top: 60px;
+            color: var(--phosphor-green);
+        }
+
+        @media (max-width: 800px) {
+            .project-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .project-status {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="crt-overlay"></div>
+
+    <main class="terminal-container">
+
+        <div class="terminal-prompts">
+            <div class="command-line">
+                <span style="color: var(--phosphor-magenta); margin-right: 8px;">&gt;</span> cd projects/
+            </div>
+            <div>
+                <a href="index.html" class="back-link">&lt;- cd ..</a>
+                <span class="comment">// Back to previous page</span>
+            </div>
+        </div>
+
+        <header>
+            <h1>PROJECTS</h1>
+        </header>
+
+        <div class="projects-list">
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Something about Computer Algebra</div>
+                    <div class="project-status status-ongoing">[ ONGOING ]</div>
+                </div>
+                <div class="project-desc">
+                    One day I will describe what this does, I promise.
+                </div>
+                <div class="tags-container">
+                    <span class="tag">SAGEMATH</span>
+                    <span class="tag">PYTHON</span>
+                    <span class="tag">ALGEBRAIC NUMBER THEORY</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title"> Reversing parts of a closed source kernel</div>
+                    <div class="project-status status-ongoing">[ ONGOING ]</div>
+                </div>
+                <div class="project-desc">
+                    This will potentially be made public somewhere around June 2027
+                </div>
+                <div class="tags-container">
+                    <span class="tag">ASSEMBLY</span>
+                    <span class="tag">Reverse engineering</span>
+                    <span class="tag">Ghidra</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">PS2 Project</div>
+                    <div class="project-status status-paused">[ PAUSED ]</div>
+                </div>
+                <div class="project-desc">
+                    Implementing Curve25519 and Kyber on a PS2 using its unique architecture !
+                </div>
+                <div class="tags-container">
+                    <span class="tag">RUST</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">ASSEMBLY</span>
+                    <span class="tag">MIPS ARCHITECTURE</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Cryptography CTF tool(s)</div>
+                    <div class="project-status status-paused">[ PAUSED ]</div>
+                </div>
+                <div class="project-desc">
+                    Tool(s) for automatically detecting and exploiting attacks on elliptic curves, or to generate not so
+                    prime "prime numbers"
+                </div>
+                <div class="tags-container">
+                    <span class="tag">RUST</span>
+                    <span class="tag">SAGEMATH</span>
+                    <span class="tag">CRYPTOGRAPHY</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Formal Verification of Basic Algebra</div>
+                    <div class="project-status status-finished">[ FINISHED ]</div>
+                </div>
+                <div class="project-desc">
+                    Formally Verifying basic results from Ring Theory
+                </div>
+                <div class="tags-container">
+                    <span class="tag">LEAN</span>
+                    <span class="tag">LATEX</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="eof-line">
+            <span style="color: var(--phosphor-magenta); margin-right: 8px;">&gt;</span> EOF reached.
+        </div>
+
+    </main>
+
+</body>
+
+</html>

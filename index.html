@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How did you get here ?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #020602;
+            --phosphor-green: #39ff14;
+            --phosphor-green-dim: #1d7c0b;
+            --phosphor-cyan: #00f3ff;
+            --phosphor-grey: #6a8c6a;
+
+            --glow-spread-green: rgba(57, 255, 20, 0.4);
+            --glow-spread-cyan: rgba(0, 243, 255, 0.4);
+            --hover-bg: rgba(57, 255, 20, 0.08);
+
+            --font-terminal: 'Space Mono', monospace;
+            --scanline-color: rgba(0, 0, 0, 0.15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--phosphor-green);
+            font-family: var(--font-terminal);
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to bottom,
+                    var(--scanline-color),
+                    var(--scanline-color) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            background-size: 100% 3px;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 50px 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--phosphor-green-dim);
+            text-shadow: 0 0 8px var(--glow-spread-green);
+        }
+
+        .type-line {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+        }
+
+        .line-1 {
+            animation: typing-1 1.2s steps(35, end) forwards;
+        }
+
+        .line-2 {
+            margin-top: 10px;
+            animation: typing-2 1.1s steps(32, end) 1.5s forwards;
+        }
+
+        .line-2::after {
+            content: '█';
+            margin-left: 8px;
+            opacity: 0;
+            animation: blink 1s step-end infinite 2.6s;
+        }
+
+        @keyframes typing-1 {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 35ch;
+            }
+        }
+
+        @keyframes typing-2 {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 32ch;
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .project-table {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            color: var(--phosphor-grey);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding: 0 15px 15px 15px;
+            border-bottom: 1px dotted var(--phosphor-grey);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 20px 15px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease-out;
+            cursor: crosshair;
+        }
+
+        .project-row:hover {
+            background-color: var(--hover-bg);
+            border-bottom: 1px solid var(--phosphor-green-dim);
+            transform: translateX(5px);
+        }
+
+        .project-row:hover .col-project {
+            text-shadow: 0 0 8px var(--phosphor-green), 0 0 15px var(--glow-spread-green);
+            color: #fff;
+        }
+
+        .project-row:hover .col-deadline {
+            text-shadow: 0 0 8px var(--phosphor-cyan), 0 0 15px var(--glow-spread-cyan);
+            color: #fff;
+        }
+
+        .col-status {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .col-project {
+            transition: all 0.2s ease-out;
+            line-height: 1.5;
+        }
+
+        .col-deadline {
+            color: var(--phosphor-cyan);
+            text-align: right;
+            white-space: nowrap;
+            transition: all 0.2s ease-out;
+        }
+
+        @media (max-width: 800px) {
+
+            .table-header,
+            .project-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .table-header {
+                display: none;
+            }
+
+            .col-deadline {
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
+            .project-row {
+                border-bottom: 1px dashed var(--phosphor-grey);
+                padding: 20px 5px;
+            }
+
+            .project-row:hover {
+                transform: translateX(0);
+            }
+        }
+
+        .nav-section-title {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid var(--phosphor-green-dim);
+    color: var(--phosphor-grey);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.terminal-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.terminal-nav a {
+    display: block;
+    color: var(--phosphor-green);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-out;
+    padding: 12px 10px;
+    margin-left: 0;
+    border: 1px solid rgba(106, 140, 106, 0.4);
+    text-align: center;
+    background-color: rgba(57, 255, 20, 0.02);
+}
+
+.terminal-nav a:hover {
+    background-color: var(--phosphor-green);
+    color: var(--bg-color);
+    border-color: var(--phosphor-green);
+    box-shadow: 0 0 15px var(--glow-spread-green);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+    .terminal-nav {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="crt-overlay"></div>
+
+    <main class="terminal-container">
+
+        <header>
+            <h1>WHAT I AM CURRENTLY WORKING ON</h1>
+        </header>
+
+        <div class="project-table">
+
+            <div class="table-header">
+                <div>PROJECTS</div>
+            </div>
+
+            <div class="project-row">
+                <div class="col-project">Finishing my Mathematics degree at TUM</div>
+            </div>
+
+            <div class="project-row">
+                <div class="col-project">Implementing modern cryptography on PS2 hardware</div>
+            </div>
+
+            <div class="project-row">
+                <div class="col-project">Reversing parts of a closed source kernel and a program that likes to hide in
+                    said kernel</div>
+            </div>
+
+        </div>
+
+        <div class="nav-section-title">> Other pages</div>
+        <nav class="terminal-nav">
+            <a href="/interests.html">[ INTERESTS ]</a>
+            <a href="/projects.html">[ ALL PROJECTS ]</a>
+            <a href="/documents.html">[ DOCUMENTS ]</a>
+            <a href="/posts.html">[ POSTS ]</a>
+        </nav>
+    </main>
+
+</body>
+
+</html>

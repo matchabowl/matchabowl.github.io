@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~/documents</title>
+    <style>
+        :root {
+            --bg-color: #020602;
+            --phosphor-green: #39ff14;
+            --phosphor-cyan: #00f3ff;
+            --phosphor-magenta: #ff00ff;
+            --phosphor-yellow: #ffcc00;
+            --phosphor-grey: #6a8c6a;
+            --font-stack: "Courier New", Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--phosphor-green);
+            font-family: var(--font-terminal);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .terminal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link {
+            color: var(--phosphor-cyan);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            background-color: var(--phosphor-cyan);
+            color: var(--bg-color);
+        }
+
+        .doc-header {
+            color: var(--phosphor-green);
+            border-bottom: 1px dashed var(--phosphor-green);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            font-weight: normal;
+        }
+
+        .doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .doc-row-header {
+            display: flex;
+            color: var(--phosphor-grey);
+            border-bottom: 1px solid var(--phosphor-grey);
+            padding-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 16px 0;
+            border-bottom: 1px solid #1a1a1a;
+            vertical-align: top;
+        }
+
+        .doc-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 10px 0;
+            transition: background 0.1s;
+        }
+
+        .doc-row:hover {
+            background-color: #0f150f;
+        }
+
+        .col-date {
+            width: 15%;
+            color: var(--phosphor-grey);
+            white-space: nowrap;
+        }
+
+        .col-title {
+            width: 65%;
+            color: var(--phosphor-cyan);
+            padding-right: 30px;
+            line-height: 1.6;
+        }
+
+        .col-resources {
+            width: 150px;
+            text-align: right;
+        }
+
+        .col-links {
+            width: 20%;
+            text-align: right;
+        }
+
+        .link-pdf {
+            color: var(--phosphor-magenta);
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .link-slides {
+            color: var(--phosphor-yellow);
+            text-decoration: none;
+        }
+
+        .link-pdf:hover {
+            background-color: var(--phosphor-magenta);
+            color: var(--bg-color);
+        }
+
+        .link-slides:hover {
+            background-color: var(--phosphor-yellow);
+            color: var(--bg-color);
+        }
+
+        .unavailable {
+            color: #333;
+        }
+
+        .margin-right-10 {
+            margin-right: 10px;
+        }
+
+        .margin-left-10 {
+            margin-left: 10px;
+        }
+        .eof-line {
+            margin-top: 50px;
+            color: var(--phosphor-green);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="crt-overlay"></div>
+
+    <div class="terminal-container">
+        <p><span style="color: var(--phosphor-green);">></span> cd /root/documents/</p>
+        <br>
+        <a href="index.html" class="back-link">&lt;- cd ..</a> <span
+            style="color: var(--phosphor-grey); margin-left: 10px;">// Back to previous page</span>
+
+        <br><br><br>
+        <h1 class="doc-header">DOCUMENTS</h1>
+
+        <div class="doc-list">
+            <div class="doc-row-header">
+                <div class="col-date">DATE</div>
+                <div class="col-title">TOPIC</div>
+                <div class="col-resources">RESOURCES</div>
+            </div>
+
+            <div class="doc-row">
+                <div class="col-date">June 2025</div>
+                <div class="col-title">Using Projective Schemes and Abstract Riemann Surfaces to bound the amount of
+                    singular points on irreducible planar curves</div>
+                <div class="col-resources">
+                    <a href="#" class="link-pdf">[ PDF ]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="eof-line">
+            <span class="prompt-arrow">&gt;</span> EOF reached.
+        </div>
+    </div>
+</body>
+
+</html>
